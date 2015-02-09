@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HideOnScrollExample</string>
+    <string name="fab_description">FAB button description</string>
+</resources>
