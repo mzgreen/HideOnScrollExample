@@ -56,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void hideViews() {
-        mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2)).start();
+        mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
         int fabBottomMargin = lp.bottomMargin;
@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showViews() {
-        mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
     }
 
