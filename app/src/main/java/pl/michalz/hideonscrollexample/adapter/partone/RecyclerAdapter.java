@@ -1,4 +1,4 @@
-package pl.michalz.hideonscrollexample.adapter;
+package pl.michalz.hideonscrollexample.adapter.partone;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import pl.michalz.hideonscrollexample.R;
-import pl.michalz.hideonscrollexample.adapter.viewholder.RecyclerHeaderViewHolder;
-import pl.michalz.hideonscrollexample.adapter.viewholder.RecyclerItemViewHolder;
+import pl.michalz.hideonscrollexample.adapter.partone.viewholder.RecyclerHeaderViewHolder;
+import pl.michalz.hideonscrollexample.adapter.partone.viewholder.RecyclerItemViewHolder;
 
 import java.util.List;
 
