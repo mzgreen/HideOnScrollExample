@@ -3,4 +3,6 @@
     <string name="fab_description">FAB button description</string>
     <string name="part_one">Part One</string>
     <string name="part_two">Part Two</string>
+    <string name="tab_2">TAB 2</string>
+    <string name="tab_1">TAB 1</string>
 </resources>

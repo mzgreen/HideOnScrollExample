@@ -1,8 +1,15 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
     </style>
 
+    <style name="AppThemeRed" parent="AppTheme">
+        <item name="colorPrimary">@color/color_primary_red</item>
+        <item name="colorPrimaryDark">@color/color_primary_red_dark</item>
+    </style>
+
+    <style name="AppThemeGreen" parent="AppTheme">
+        <item name="colorPrimary">@color/color_primary_green</item>
+        <item name="colorPrimaryDark">@color/color_primary_green_dark</item>
+    </style>
 </resources>

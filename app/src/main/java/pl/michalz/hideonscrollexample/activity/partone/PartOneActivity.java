@@ -1,4 +1,4 @@
-package pl.michalz.hideonscrollexample.activity;
+package pl.michalz.hideonscrollexample.activity.partone;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -23,6 +23,7 @@ public class PartOneActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppThemeRed);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_part_one);
 

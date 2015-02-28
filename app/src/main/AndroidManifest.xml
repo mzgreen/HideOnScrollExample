@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.PartOneActivity"/>
+                android:name=".activity.partone.PartOneActivity"/>
         <activity
-                android:name=".activity.PartTwoActivity"/>
+                android:name=".activity.parttwo.PartTwoActivity"/>
     </application>
 
 </manifest>

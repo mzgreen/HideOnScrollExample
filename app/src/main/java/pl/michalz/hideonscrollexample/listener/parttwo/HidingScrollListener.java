@@ -1,48 +1,92 @@
 package pl.michalz.hideonscrollexample.listener.parttwo;
 
-import android.support.v7.widget.LinearLayoutManager;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import pl.michalz.hideonscrollexample.Utils;
 
 /*
 * This class is a ScrollListener for RecyclerView that allows to show/hide
-* views when list is scrolled. It assumes that you have added a header
-* to your list. @see pl.michalz.hideonscrollexample.adapter.partone.RecyclerAdapter
+* views when list is scrolled.
 * */
 public abstract class HidingScrollListener extends RecyclerView.OnScrollListener {
 
-    private static final int HIDE_THRESHOLD = 20;
+    private static final float HIDE_THRESHOLD = 10;
+    private static final float SHOW_THRESHOLD = 70;
 
-    private int scrolledDistance = 0;
-    private boolean controlsVisible = true;
+    private int mToolbarOffset = 0;
+    private boolean mControlsVisible = true;
+    private int mToolbarHeight;
+    private int mTotalScrolledDistance;
 
+    public HidingScrollListener(Context context) {
+        mToolbarHeight = Utils.getToolbarHeight(context);
+    }
+
+    @Override
+    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        super.onScrollStateChanged(recyclerView, newState);
+
+        if(newState == RecyclerView.SCROLL_STATE_IDLE) {
+            if(mTotalScrolledDistance < mToolbarHeight) {
+                setVisible();
+            } else {
+                if (mControlsVisible) {
+                    if (mToolbarOffset > HIDE_THRESHOLD) {
+                        setInvisible();
+                    } else {
+                       setVisible();
+                    }
+                } else {
+                    if ((mToolbarHeight - mToolbarOffset) > SHOW_THRESHOLD) {
+                        setVisible();
+                    } else {
+                        setInvisible();
+                    }
+                }
+            }
+        }
+
+    }
 
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
 
-        int firstVisibleItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+        clipToolbarOffset();
+        onMoved(mToolbarOffset);
 
-        if (firstVisibleItem == 0) {
-            if(!controlsVisible) {
-                onShow();
-                controlsVisible = true;
-            }
-        } else {
-            if (scrolledDistance > HIDE_THRESHOLD && controlsVisible) {
-                onHide();
-                controlsVisible = false;
-                scrolledDistance = 0;
-            } else if (scrolledDistance < -HIDE_THRESHOLD && !controlsVisible) {
-                onShow();
-                controlsVisible = true;
-                scrolledDistance = 0;
-            }
+        if((mToolbarOffset <mToolbarHeight && dy>0) || (mToolbarOffset >0 && dy<0)) {
+            mToolbarOffset += dy;
         }
-        if((controlsVisible && dy>0) || (!controlsVisible && dy<0)) {
-            scrolledDistance += dy;
+
+        mTotalScrolledDistance += dy;
+    }
+
+    private void clipToolbarOffset() {
+        if(mToolbarOffset > mToolbarHeight) {
+            mToolbarOffset = mToolbarHeight;
+        } else if(mToolbarOffset < 0) {
+            mToolbarOffset = 0;
         }
     }
 
-    public abstract void onHide();
+    private void setVisible() {
+        if(mToolbarOffset > 0) {
+            onShow();
+            mToolbarOffset = 0;
+        }
+        mControlsVisible = true;
+    }
+
+    private void setInvisible() {
+        if(mToolbarOffset < mToolbarHeight) {
+            onHide();
+            mToolbarOffset = mToolbarHeight;
+        }
+        mControlsVisible = false;
+    }
+
+    public abstract void onMoved(int distance);
     public abstract void onShow();
+    public abstract void onHide();
 }

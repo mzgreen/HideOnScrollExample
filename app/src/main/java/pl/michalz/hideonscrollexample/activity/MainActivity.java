@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import pl.michalz.hideonscrollexample.R;
+import pl.michalz.hideonscrollexample.activity.partone.PartOneActivity;
+import pl.michalz.hideonscrollexample.activity.parttwo.PartTwoActivity;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -31,7 +33,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.app_name));
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
     @Override
