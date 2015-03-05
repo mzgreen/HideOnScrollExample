@@ -58,8 +58,11 @@ public abstract class HidingScrollListener extends RecyclerView.OnScrollListener
         if((mToolbarOffset <mToolbarHeight && dy>0) || (mToolbarOffset >0 && dy<0)) {
             mToolbarOffset += dy;
         }
-
-        mTotalScrolledDistance += dy;
+        if (mTotalScrolledDistance < 0) {
+            mTotalScrolledDistance = 0;
+        } else {
+            mTotalScrolledDistance += dy;
+        }
     }
 
     private void clipToolbarOffset() {
