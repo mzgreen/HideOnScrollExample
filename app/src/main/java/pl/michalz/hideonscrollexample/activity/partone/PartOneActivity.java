@@ -1,7 +1,7 @@
 package pl.michalz.hideonscrollexample.activity.partone;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -9,14 +9,14 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import pl.michalz.hideonscrollexample.listener.partone.HidingScrollListener;
 import pl.michalz.hideonscrollexample.R;
 import pl.michalz.hideonscrollexample.adapter.partone.RecyclerAdapter;
+import pl.michalz.hideonscrollexample.listener.partone.HidingScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartOneActivity extends ActionBarActivity {
+public class PartOneActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private ImageButton mFabButton;
@@ -45,7 +45,7 @@ public class PartOneActivity extends ActionBarActivity {
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList());
         recyclerView.setAdapter(recyclerAdapter);
 
-        recyclerView.setOnScrollListener(new HidingScrollListener() {
+        recyclerView.addOnScrollListener(new HidingScrollListener() {
             @Override
             public void onHide() {
                 hideViews();

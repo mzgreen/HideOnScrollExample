@@ -20,6 +20,8 @@
                 android:name=".activity.partone.PartOneActivity"/>
         <activity
                 android:name=".activity.parttwo.PartTwoActivity"/>
+        <activity
+                android:name=".activity.partthree.PartThreeActivity"/>
     </application>
 
 </manifest>

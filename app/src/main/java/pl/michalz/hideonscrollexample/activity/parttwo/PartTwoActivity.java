@@ -1,7 +1,7 @@
 package pl.michalz.hideonscrollexample.activity.parttwo;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +16,7 @@ import pl.michalz.hideonscrollexample.listener.parttwo.HidingScrollListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartTwoActivity extends ActionBarActivity {
+public class PartTwoActivity extends AppCompatActivity {
 
     private LinearLayout mToolbarContainer;
     private int mToolbarHeight;
@@ -50,7 +50,7 @@ public class PartTwoActivity extends ActionBarActivity {
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList());
         recyclerView.setAdapter(recyclerAdapter);
 
-        recyclerView.setOnScrollListener(new HidingScrollListener(this) {
+        recyclerView.addOnScrollListener(new HidingScrollListener(this) {
 
             @Override
             public void onMoved(int distance) {

@@ -4,5 +4,8 @@
     <color name="color_primary_red_dark">#d32f2f</color>
     <color name="color_primary_green"> #4caf50</color>
     <color name="color_primary_green_dark">#388e3c</color>
+    <color name="color_primary_blue">#2196f3</color>
+    <color name="color_primary_blue_dark">#1976d2</color>
+    <color name="color_accent_pink">#ff4081</color>
     <color name="color_shadow">#44000000</color>
 </resources>

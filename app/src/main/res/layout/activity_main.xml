@@ -21,6 +21,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/part_two"/>
+
+        <Button
+                android:id="@+id/partThreeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/part_three"/>
     </LinearLayout>
 
     <android.support.v7.widget.Toolbar

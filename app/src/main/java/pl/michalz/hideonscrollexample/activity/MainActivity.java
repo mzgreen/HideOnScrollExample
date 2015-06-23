@@ -2,18 +2,20 @@ package pl.michalz.hideonscrollexample.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import pl.michalz.hideonscrollexample.R;
 import pl.michalz.hideonscrollexample.activity.partone.PartOneActivity;
+import pl.michalz.hideonscrollexample.activity.partthree.PartThreeActivity;
 import pl.michalz.hideonscrollexample.activity.parttwo.PartTwoActivity;
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button partOneButton;
     private Button partTwoButton;
+    private Button partThreeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         partOneButton = (Button) findViewById(R.id.partOneButton);
         partTwoButton = (Button) findViewById(R.id.partTwoButton);
+        partThreeButton = (Button) findViewById(R.id.partThreeButton);
 
         partOneButton.setOnClickListener(this);
         partTwoButton.setOnClickListener(this);
+        partThreeButton.setOnClickListener(this);
     }
 
     private void initToolbar() {
@@ -39,8 +43,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v.equals(partOneButton)) {
             startActivity(PartOneActivity.class);
-        } else {
+        } else if(v.equals(partTwoButton)) {
             startActivity(PartTwoActivity.class);
+        } else {
+            startActivity(PartThreeActivity.class);
         }
     }
 
